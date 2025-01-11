@@ -19,7 +19,7 @@ export default function Community() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-200 to-sky-400 p-8">
       <motion.h1 
-        className="text-5xl font-bold mb-12 text-center text-green-800"
+        className="text-5xl font-bold mb-12 text-center text-green-900" // Darker green text
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
@@ -31,13 +31,15 @@ export default function Community() {
         <motion.div {...fadeIn}>
           <Card className="bg-white/80 backdrop-blur-sm hover:shadow-lg transition-shadow duration-300">
             <CardHeader>
-              <CardTitle className="flex items-center text-2xl">
+              <CardTitle className="flex items-center text-2xl text-gray-800"> {/* Darker text */}
                 <Leaf className="mr-2 text-green-600" /> Local Authorities
               </CardTitle>
-              <CardDescription>Connect with forest reserve authorities</CardDescription>
+              <CardDescription className="text-gray-700"> {/* Darker description text */}
+                Connect with forest reserve authorities
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <ul className="list-disc pl-5 space-y-2">
+              <ul className="list-disc pl-5 space-y-2 text-gray-800"> {/* Darker list text */}
                 <li>Forest Department Helpline: 1-800-FOREST</li>
                 <li>Email: foresthelp@example.com</li>
                 <li>Visit: www.localforestauthority.com</li>
@@ -52,13 +54,15 @@ export default function Community() {
         <motion.div {...fadeIn} transition={{ delay: 0.2 }}>
           <Card className="bg-white/80 backdrop-blur-sm hover:shadow-lg transition-shadow duration-300">
             <CardHeader>
-              <CardTitle className="flex items-center text-2xl">
+              <CardTitle className="flex items-center text-2xl text-gray-800"> {/* Darker text */}
                 <Users className="mr-2 text-blue-600" /> Eco-Volunteer Programs
               </CardTitle>
-              <CardDescription>Join local conservation efforts</CardDescription>
+              <CardDescription className="text-gray-700"> {/* Darker description text */}
+                Join local conservation efforts
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <ul className="list-disc pl-5 space-y-2">
+              <ul className="list-disc pl-5 space-y-2 text-gray-800"> {/* Darker list text */}
                 <li>Weekend Forest Cleanup</li>
                 <li>Tree Planting Initiative</li>
                 <li>Wildlife Habitat Restoration</li>
@@ -74,25 +78,33 @@ export default function Community() {
       <motion.div {...fadeIn} transition={{ delay: 0.4 }}>
         <Card className="mb-12 bg-white/80 backdrop-blur-sm hover:shadow-lg transition-shadow duration-300">
           <CardHeader>
-            <CardTitle className="flex items-center text-2xl">
+            <CardTitle className="flex items-center text-2xl text-gray-800"> {/* Darker text */}
               <AlertTriangle className="mr-2 text-yellow-600" /> Report Harmful Activities
             </CardTitle>
-            <CardDescription>Help us protect our ecosystem</CardDescription>
+            <CardDescription className="text-gray-700"> {/* Darker description text */}
+              Help us protect our ecosystem
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
-                  <Input id="name" placeholder="Your name" className="bg-white/50" />
+                  <Label htmlFor="name" className="text-gray-800"> {/* Darker label text */}
+                    Name
+                  </Label>
+                  <Input id="name" placeholder="Your name" className="bg-white/50 text-gray-800" />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="Your email" className="bg-white/50" />
+                  <Label htmlFor="email" className="text-gray-800"> {/* Darker label text */}
+                    Email
+                  </Label>
+                  <Input id="email" type="email" placeholder="Your email" className="bg-white/50 text-gray-800" />
                 </div>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="activity-type">Type of Activity</Label>
+                <Label htmlFor="activity-type" className="text-gray-800"> {/* Darker label text */}
+                  Type of Activity
+                </Label>
                 <Select
                   options={[
                     { value: "illegal-logging", label: "Illegal Logging" },
@@ -101,12 +113,14 @@ export default function Community() {
                     { value: "other", label: "Other" },
                   ]}
                   placeholder="Select activity type"
-                  className="bg-white/50"
+                  className="bg-white/50 text-gray-800"
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="description">Description</Label>
-                <Textarea id="description" placeholder="Describe the harmful activity you observed" className="bg-white/50" />
+                <Label htmlFor="description" className="text-gray-800"> {/* Darker label text */}
+                  Description
+                </Label>
+                <Textarea id="description" placeholder="Describe the harmful activity you observed" className="bg-white/50 text-gray-800" />
               </div>
               <Button type="submit" className="w-full bg-yellow-600 hover:bg-yellow-700">
                 <Send className="mr-2" /> Submit Report
@@ -127,4 +141,3 @@ export default function Community() {
     </div>
   )
 }
-
