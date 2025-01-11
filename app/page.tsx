@@ -33,8 +33,7 @@ export default function Home() {
   }
 
   return (
-    <div>
-      
+    <div className="bg-gray-900">
       <AnimatedHero />
       <motion.div
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20"
@@ -42,18 +41,16 @@ export default function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.8 }}
       >
-      <div className="flex justify-center items-center">
-  <button
-    onClick={scrollToContent}
-    className="bg-white text-green-600 px-6 py-3 rounded-full font-bold text-lg hover:bg-green-100 transition-colors duration-300"
-  >
-       Explore
-     </button>
-     </div>
-
-
+        <div className="flex justify-center items-center">
+          <button
+            onClick={scrollToContent}
+            className="bg-green-500 text-gray-900 px-6 py-3 rounded-full font-bold text-lg hover:bg-green-400 transition-colors duration-300"
+          >
+            Explore
+          </button>
+        </div>
       </motion.div>
-      <div ref={contentRef} className="min-h-screen bg-white py-16">
+      <div ref={contentRef} className="min-h-screen bg-gray-900 py-16">
         <motion.div 
           className="container mx-auto px-4"
           initial="hidden"
@@ -62,7 +59,7 @@ export default function Home() {
           variants={containerVariants}
         >
           <motion.h2 
-            className="text-4xl font-bold text-center mb-12"
+            className="text-4xl font-bold text-center mb-12 text-gray-100"
             variants={itemVariants}
           >
             Discover Our Features
@@ -73,44 +70,50 @@ export default function Home() {
           >
             <FeatureCard
               href="/forest-reserve"
-              icon={<Tree className="w-8 h-8" />}
+              icon={<Tree className="w-8 h-8 text-green-400" />}
               title="Forest Reserve Monitoring"
               description="Monitor real-time health stats of selected forest reserves."
-              bgColor="bg-green-100"
+              bgColor="bg-gray-800"
+              textColor="text-gray-100"
             />
             <FeatureCard
               href="/carbon-water-tracker"
-              icon={<Droplet className="w-8 h-8" />}
+              icon={<Droplet className="w-8 h-8 text-blue-400" />}
               title="Carbon & Water Tracker"
               description="Track your personal carbon footprint and water consumption."
-              bgColor="bg-blue-100"
+              bgColor="bg-gray-800"
+              textColor="text-gray-100"
             />
             <FeatureCard
               href="/challenges"
-              icon={<Bike className="w-8 h-8" />}
+              icon={<Bike className="w-8 h-8 text-purple-400" />}
               title="Ecosystem Challenges"
               description="Participate in weekly eco-friendly challenges."
-              bgColor="bg-purple-100"
+              bgColor="bg-gray-800"
+              textColor="text-gray-100"
             />
             <FeatureCard
               href="/ecosystem-map"
-              icon={<Map className="w-8 h-8" />}
+              icon={<Map className="w-8 h-8 text-red-400" />}
               title="Ecosystem Health Visualization"
               description="Explore interactive maps of ecosystem health."
-              bgColor="bg-red-100"
+              bgColor="bg-gray-800"
+              textColor="text-gray-100"
             />
             <FeatureCard
               href="/community"
-              icon={<Users className="w-8 h-8" />}
+              icon={<Users className="w-8 h-8 text-indigo-400" />}
               title="Community Collaboration"
               description="Connect with local authorities and eco-volunteer programs."
-              bgColor="bg-indigo-100"
+              bgColor="bg-gray-800"
+              textColor="text-gray-100"
             />
             <FeatureCard
               title="Carbon Offset Contributions"
               description="Contribute to reforestation or water restoration projects."
-              bgColor="bg-yellow-100"
-              icon={<Heart className="w-8 h-8" />}
+              bgColor="bg-gray-800"
+              textColor="text-gray-100"
+              icon={<Heart className="w-8 h-8 text-yellow-400" />}
             />
           </motion.div>
         </motion.div>
@@ -126,12 +129,13 @@ interface FeatureCardProps {
   title: string
   description: string
   bgColor: string
+  textColor: string
 }
 
-const FeatureCard: React.FC<FeatureCardProps> = ({ href, icon, title, description, bgColor }) => {
+const FeatureCard: React.FC<FeatureCardProps> = ({ href, icon, title, description, bgColor, textColor }) => {
   const content = (
     <motion.div 
-      className={`p-6 ${bgColor} rounded-lg shadow-md hover:shadow-lg transition-shadow`}
+      className={`p-6 ${bgColor} ${textColor} rounded-lg shadow-md hover:shadow-lg transition-shadow`}
       variants={{
         hidden: { scale: 0.8, opacity: 0 },
         visible: { scale: 1, opacity: 1 }
@@ -148,11 +152,9 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ href, icon, title, descriptio
         </motion.div>
       )}
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p>{description}</p>
+      <p className="text-gray-300">{description}</p>
     </motion.div>
   )
 
   return href ? <Link href={href}>{content}</Link> : content
 }
-
-
