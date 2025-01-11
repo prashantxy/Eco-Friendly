@@ -125,7 +125,7 @@ export default function CarbonWaterTracker() {
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <Droplet className="text-blue-600 h-6 w-6 mr-2" />
-              <h2 className="text-xl font-semibold">Water Usage</h2>
+              <h2 className="text-xl font-semibold text-blue">Water Usage</h2>
             </div>
             <motion.span
               initial={{ scale: 0 }}
