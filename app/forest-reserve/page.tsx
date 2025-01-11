@@ -1,27 +1,55 @@
 'use client'
+
+import { useState, useEffect } from 'react'
 import { TreesIcon as Tree } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import 'leaflet/dist/leaflet.css'
 
+// Dynamically import Leaflet components for client-side rendering
 const MapContainer = dynamic(() => import('react-leaflet').then(mod => mod.MapContainer), { ssr: false })
 const TileLayer = dynamic(() => import('react-leaflet').then(mod => mod.TileLayer), { ssr: false })
 const Marker = dynamic(() => import('react-leaflet').then(mod => mod.Marker), { ssr: false })
 const Popup = dynamic(() => import('react-leaflet').then(mod => mod.Popup), { ssr: false })
 
+// Define types for reserves
+type Reserve = {
+  id: number
+  name: string
+  lat: number
+  lng: number
+  health: number
+}
+
 export default function ForestReserve() {
+  const [reserves, setReserves] = useState<Reserve[]>([])
+
+  // Mock API call to fetch forest reserves
+  useEffect(() => {
+    const fetchReserves = async () => {
+      const data: Reserve[] = [
+        { id: 1, name: 'Amazon Rainforest', lat: 51.505, lng: -0.09, health: 92 },
+        { id: 2, name: 'European Reserve', lat: 48.8566, lng: 2.3522, health: 78 },
+      ]
+      setReserves(data)
+    }
+    fetchReserves()
+  }, [])
+
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-4xl font-bold mb-6 flex items-center text-green-700">
-        <Tree className="mr-2" />
-        Forest Reserve Monitoring
-      </h1>
-
-      <p className="text-lg mb-6">
-        This page will display real-time health stats of selected forest reserves and allow users to "adopt" portions for virtual monitoring.
-      </p>
+      {/* Page Header */}
+      <header className="mb-6">
+        <h1 className="text-4xl font-bold flex items-center text-green-700">
+          <Tree className="mr-2" />
+          Forest Reserve Monitoring
+        </h1>
+        <p className="text-lg">
+          This page displays real-time health stats of selected forest reserves and allows users to "adopt" portions for virtual monitoring.
+        </p>
+      </header>
 
       {/* Interactive Map Section */}
-      <div className="mb-12">
+      <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-4">Explore Forest Reserves on the Map</h2>
         <div className="relative h-80 bg-gray-200 rounded-lg">
           <MapContainer
@@ -34,28 +62,21 @@ export default function ForestReserve() {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               attribution="© OpenStreetMap contributors"
             />
-
-            {/* Sample markers for forest reserves */}
-            <Marker position={[51.505, -0.09]}>
-              <Popup>
-                <strong>Amazon Rainforest</strong>
-                <p>Healthy Vegetation: 92%</p>
-                <p>Carbon Storage: 35 tons/ha</p>
-              </Popup>
-            </Marker>
-            <Marker position={[48.8566, 2.3522]}>
-              <Popup>
-                <strong>European Reserve</strong>
-                <p>Healthy Vegetation: 78%</p>
-                <p>Carbon Storage: 20 tons/ha</p>
-              </Popup>
-            </Marker>
+            {/* Dynamic markers for forest reserves */}
+            {reserves.map(reserve => (
+              <Marker key={reserve.id} position={[reserve.lat, reserve.lng]}>
+                <Popup>
+                  <strong>{reserve.name}</strong>
+                  <p>Healthy Vegetation: {reserve.health}%</p>
+                </Popup>
+              </Marker>
+            ))}
           </MapContainer>
         </div>
-      </div>
+      </section>
 
       {/* Real-Time Stats Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
         <div className="bg-green-100 p-6 rounded-lg shadow-lg">
           <h3 className="font-semibold text-lg mb-3">Air Quality</h3>
           <p className="text-xl">Current AQI: 45 (Good)</p>
@@ -68,34 +89,37 @@ export default function ForestReserve() {
           <h3 className="font-semibold text-lg mb-3">Vegetation Health</h3>
           <p className="text-xl">Healthy Vegetation: 85%</p>
         </div>
-      </div>
+      </section>
 
       {/* Adoption Section */}
-      <div className="bg-white p-6 rounded-lg shadow-lg mb-12">
+      <section className="bg-white p-6 rounded-lg shadow-lg mb-12">
         <h2 className="text-2xl font-semibold mb-4">Adopt a Portion of the Forest Reserve</h2>
-        <p className="mb-4">Choose a portion of the forest reserve to adopt and track its health. Your actions will contribute to its restoration and preservation.</p>
-        
-        {/* Adoption progress bar */}
+        <p className="mb-4">
+          Choose a portion of the forest reserve to adopt and track its health. Your actions will contribute to its restoration and preservation.
+        </p>
         <div className="mb-4">
-          <label htmlFor="adopt-progress" className="block text-sm font-medium mb-2">Adopted Portion Health</label>
-          <progress id="adopt-progress" value="60" max="100" className="w-full h-6 bg-gray-200 rounded-full">
-            60%
-          </progress>
+          <label htmlFor="adopt-progress" className="block text-sm font-medium mb-2">
+            Adopted Portion Health
+          </label>
+          <div className="w-full h-6 bg-gray-200 rounded-full overflow-hidden">
+            <div className="h-full bg-green-500 rounded-full" style={{ width: '60%' }}></div>
+          </div>
         </div>
-
         <button className="bg-green-600 text-white py-2 px-6 rounded-lg hover:bg-green-500 transition duration-300">
           Adopt This Portion
         </button>
-      </div>
+      </section>
 
       {/* Gamification & Rewards Section */}
-      <div className="bg-gray-50 p-6 rounded-lg shadow-lg">
+      <section className="bg-gray-50 p-6 rounded-lg shadow-lg">
         <h2 className="text-2xl font-semibold mb-4">Earn Rewards for Protecting the Forest</h2>
-        <p className="mb-4">Complete eco-friendly challenges, adopt more forest portions, and share your progress to earn rewards.</p>
+        <p className="mb-4">
+          Complete eco-friendly challenges, adopt more forest portions, and share your progress to earn rewards.
+        </p>
         <button className="bg-yellow-500 text-white py-2 px-6 rounded-lg hover:bg-yellow-400 transition duration-300">
           View Challenges
         </button>
-      </div>
+      </section>
     </div>
   )
 }

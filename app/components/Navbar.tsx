@@ -1,60 +1,67 @@
-'use client';
+'use client'
 
-import Link from 'next/link';
-import { Home, TreesIcon as Tree, Droplet, Bike, Map, Users } from 'lucide-react'
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import Link from 'next/link'
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { Heart, Home, TreesIcon as Tree, Droplet, Bike, Map, Users} from 'lucide-react'
 
-const HorizontalNavbar = () => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  // Toggle menu for mobile view
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
   return (
-    <motion.nav
-      className={`fixed top-0 left-0 w-full bg-green-600 text-white shadow-md transition-all duration-300 ${
-        isCollapsed ? 'h-12' : 'h-16'
-      }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8 }}
-    >
-      <div className="flex items-center justify-between h-full px-4">
-        {/* Logo */}
-        <Link href="/" className="text-lg font-bold">
-          {isCollapsed ? 'EM' : 'EcoSystem Monitor'}
-        </Link>
+    <nav className="bg-green-600 text-white shadow-md">
+      <div className="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
+        {/* Logo or Brand */}
+        <div className="text-2xl font-semibold">
+          <Link href="/">EcoSystem Monitor</Link>
+        </div>
 
-        {/* Navigation Links */}
-        <ul className="flex items-center space-x-4">
-          <NavItem href="/" icon={<Home size={18} />} text="Dashboard" />
-          <NavItem href="/forest-reserve" icon={<Tree size={18} />} text="Forest Reserve" />
-          <NavItem href="/carbon-water-tracker" icon={<Droplet size={18} />} text="Carbon & Water" />
-          <NavItem href="/challenges" icon={<Bike size={18} />} text="Challenges" />
-          <NavItem href="/ecosystem-map" icon={<Map size={18} />} text="Ecosystem Map" />
-          <NavItem href="/community" icon={<Users size={18} />} text="Community" />
-        </ul>
+        {/* Hamburger Icon for Mobile */}
+        <div className="lg:hidden flex items-center">
+          <button onClick={toggleMenu}>
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
 
-        {/* Collapse Button */}
-        <button
-          onClick={() => setIsCollapsed(!isCollapsed)}
-          className="p-2 bg-green-700 rounded hover:bg-green-800 transition-colors"
-        >
-          {isCollapsed ? 'Expand' : 'Collapse'}
-        </button>
+        {/* Navigation Links for Desktop */}
+        <div className="hidden lg:flex space-x-6">
+          <Link href="/" className="hover:text-green-200">Home</Link>
+          <Link href="/forest-reserve" className="hover:text-green-200">Forest Reserve</Link>
+          <Link href="/carbon-water-tracker" className="hover:text-green-200">Carbon & Water Tracker</Link>
+          <Link href="/challenges" className="hover:text-green-200">Challenges</Link>
+          <Link href="/ecosystem-map" className="hover:text-green-200">Ecosystem Map</Link>
+          <Link href="/community" className="hover:text-green-200">Community</Link>
+        </div>
       </div>
-    </motion.nav>
-  );
-};
 
-const NavItem = ({ href, icon, text }: { href: string; icon: React.ReactNode; text: string }) => (
-  <li>
-    <Link
-      href={href}
-      className="flex items-center space-x-1 hover:bg-green-700 px-3 py-2 rounded transition-colors"
-    >
-      {icon}
-      <span>{text}</span>
-    </Link>
-  </li>
-);
+      {/* Mobile Menu (When Hamburger is Open) */}
+      {isMenuOpen && (
+        <div className="lg:hidden bg-green-700 text-white py-4 px-6">
+          <Link href="/" className="block py-2">Home</Link>
+          <Link href="/forest-reserve" className="block py-2">Forest Reserve</Link>
+          <Link href="/carbon-water-tracker" className="block py-2">Carbon & Water Tracker</Link>
+          <Link href="/challenges" className="block py-2">Challenges</Link>
+          <Link href="/ecosystem-map" className="block py-2">Ecosystem Map</Link>
+          <Link href="/community" className="block py-2">Community</Link>
+        </div>
+      )}
 
-export default HorizontalNavbar;
+      {/* Optional Icon */}
+      <motion.div 
+        className="hover:text-green-200"
+        initial={{ rotate: 0 }}
+        animate={{ rotate: 360 }}
+        transition={{ duration: 2, repeat: Infinity, repeatType: "loop" }}
+      >
+        <Heart className="w-6 h-6" />
+      </motion.div>
+    </nav>
+  )
+}
+
+export default Navbar

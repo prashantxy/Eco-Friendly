@@ -1,6 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
-import Header from './components/Header'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -18,13 +19,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
+        <Navbar />  {/* Replace Header with Navbar */}
         <main>
-          {children}
+          {children}  {/* Main content area for each page */}
         </main>
-        <Script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" />
+        <Script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" />  {/* External script for Three.js */}
+        <Footer/>
       </body>
     </html>
   )
 }
-

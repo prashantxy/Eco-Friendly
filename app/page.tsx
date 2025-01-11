@@ -34,6 +34,7 @@ export default function Home() {
 
   return (
     <div>
+      
       <AnimatedHero />
       <motion.div
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20"
@@ -41,12 +42,16 @@ export default function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.8 }}
       >
-        <button
-          onClick={scrollToContent}
-          className="bg-white text-green-600 px-6 py-3 rounded-full font-bold text-lg hover:bg-green-100 transition-colors duration-300"
-        >
-          Explore
-        </button>
+      <div className="flex justify-center items-center">
+  <button
+    onClick={scrollToContent}
+    className="bg-white text-green-600 px-6 py-3 rounded-full font-bold text-lg hover:bg-green-100 transition-colors duration-300"
+  >
+       Explore
+     </button>
+     </div>
+
+
       </motion.div>
       <div ref={contentRef} className="min-h-screen bg-white py-16">
         <motion.div 
@@ -138,7 +143,6 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ href, icon, title, descriptio
         <motion.div 
           className="mb-4"
           initial={{ rotate: 0 }}
-         
         >
           {icon}
         </motion.div>
@@ -150,4 +154,5 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ href, icon, title, descriptio
 
   return href ? <Link href={href}>{content}</Link> : content
 }
+
 
