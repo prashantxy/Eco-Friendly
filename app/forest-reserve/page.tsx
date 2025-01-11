@@ -51,28 +51,7 @@ export default function ForestReserve() {
       {/* Interactive Map Section */}
       <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-4">Explore Forest Reserves on the Map</h2>
-        <div className="relative h-80 bg-gray-200 rounded-lg">
-          <MapContainer
-            center={[51.505, -0.09]} // Default center
-            zoom={5} // Default zoom level
-            className="h-full w-full rounded-lg shadow-lg"
-          >
-            {/* Tile layer */}
-            <TileLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              attribution="© OpenStreetMap contributors"
-            />
-            {/* Dynamic markers for forest reserves */}
-            {reserves.map(reserve => (
-              <Marker key={reserve.id} position={[reserve.lat, reserve.lng]}>
-                <Popup>
-                  <strong>{reserve.name}</strong>
-                  <p>Healthy Vegetation: {reserve.health}%</p>
-                </Popup>
-              </Marker>
-            ))}
-          </MapContainer>
-        </div>
+       
       </section>
 
       {/* Real-Time Stats Section */}
