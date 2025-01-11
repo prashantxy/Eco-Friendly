@@ -1,4 +1,4 @@
-'use client'
+'use client' // Mark this file as a client component
 
 import { useState, useEffect } from 'react'
 import { TreesIcon as Tree } from 'lucide-react'
