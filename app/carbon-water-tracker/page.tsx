@@ -98,12 +98,12 @@ export default function CarbonWaterTracker() {
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="max-w-5xl mx-auto p-6 space-y-8"
+      className="max-w-5xl mx-auto p-6 space-y-8 bg-white"
     >
       <motion.div
         initial={{ y: -50 }}
         animate={{ y: 0 }}
-        className="bg-gradient-to-r from-blue-600 to-green-500 rounded-xl p-8 text-white shadow-xl"
+        className="bg-gradient-to-r from-blue-500 to-green-500 rounded-xl p-8 text-white shadow-lg"
       >
         <motion.h1 
           className="text-4xl font-bold mb-4 flex items-center"
@@ -120,17 +120,17 @@ export default function CarbonWaterTracker() {
         <motion.div 
           initial={{ x: -20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          className="bg-gradient-to-br from-blue-100 to-blue-200 p-6 rounded-xl shadow-lg"
+          className="bg-gradient-to-br from-blue-100 to-blue-200 p-6 rounded-xl shadow-md"
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <Droplet className="text-blue-600 h-6 w-6 mr-2" />
-              <h2 className="text-xl font-semibold text-blue">Water Usage</h2>
+              <h2 className="text-xl font-semibold text-blue-700">Water Usage</h2>
             </div>
             <motion.span
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              className="text-3xl font-bold text-blue-700"
+              className="text-3xl font-bold text-blue-800"
             >
               {impact.water.toFixed(1)}L
             </motion.span>
@@ -152,17 +152,17 @@ export default function CarbonWaterTracker() {
         <motion.div 
           initial={{ x: 20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          className="bg-gradient-to-br from-green-100 to-green-200 p-6 rounded-xl shadow-lg"
+          className="bg-gradient-to-br from-green-100 to-green-200 p-6 rounded-xl shadow-md"
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <Wind className="text-green-600 h-6 w-6 mr-2" />
-              <h2 className="text-xl font-semibold">Carbon Footprint</h2>
+              <h2 className="text-xl font-semibold text-green-700">Carbon Footprint</h2>
             </div>
             <motion.span
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              className="text-3xl font-bold text-green-700"
+              className="text-3xl font-bold text-green-800"
             >
               {impact.carbon.toFixed(1)}kg
             </motion.span>
@@ -185,7 +185,7 @@ export default function CarbonWaterTracker() {
       <motion.div 
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="bg-white rounded-xl shadow-lg p-6"
+        className="bg-white rounded-xl shadow-md p-6"
       >
         <h2 className="text-2xl font-semibold mb-6">Track Your Usage</h2>
         
@@ -203,7 +203,7 @@ export default function CarbonWaterTracker() {
               }`}
             >
               <Icon className="w-6 h-6 mx-auto mb-2" />
-              <p className="text-sm font-medium capitalize">{id}</p>
+              <p className="text-sm font-medium capitalize text-gray-700">{id}</p>
             </motion.button>
           ))}
         </div>
@@ -224,12 +224,12 @@ export default function CarbonWaterTracker() {
                     animate={{ x: 0, opacity: 1 }}
                     className="space-y-2"
                   >
-                    <label className="text-sm font-medium text-gray-600">{label}</label>
+                    <label className="text-sm font-medium text-gray-700">{label}</label>
                     <input
                       type="number"
                       value={formData[id] || ''}
                       onChange={(e) => handleInputChange(id, e.target.value)}
-                      className="w-full p-2 border rounded-md"
+                      className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-400"
                     />
                   </motion.div>
                 ))}
