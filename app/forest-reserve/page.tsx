@@ -36,69 +36,72 @@ export default function ForestReserve() {
   }, [])
 
   return (
-    <div className="container mx-auto p-6">
-      {/* Page Header */}
-      <header className="mb-6">
-        <h1 className="text-4xl font-bold flex items-center text-green-700">
-          <Tree className="mr-2" />
-          Forest Reserve Monitoring
-        </h1>
-        <p className="text-lg">
-          This page displays real-time health stats of selected forest reserves and allows users to "adopt" portions for virtual monitoring.
-        </p>
-      </header>
+    <div className="min-h-screen bg-gradient-to-b from-green-100 to-green-200">
+      <div className="container mx-auto p-6">
+        {/* Page Header */}
+        <header className="mb-6">
+          <h1 className="text-4xl font-bold flex items-center text-green-800">
+            <Tree className="mr-2" />
+            Forest Reserve Monitoring
+          </h1>
+          <p className="text-lg text-green-700">
+            This page displays real-time health stats of selected forest reserves and allows users to "adopt" portions for virtual monitoring.
+          </p>
+        </header>
 
-      {/* Interactive Map Section */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Explore Forest Reserves on the Map</h2>
-       
-      </section>
+        {/* Interactive Map Section */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-semibold mb-4 text-green-800">Explore Forest Reserves on the Map</h2>
+         
+         
+        </section>
 
-      {/* Real-Time Stats Section */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-        <div className="bg-green-100 p-6 rounded-lg shadow-lg">
-          <h3 className="font-semibold text-lg mb-3">Air Quality</h3>
-          <p className="text-xl">Current AQI: 45 (Good)</p>
-        </div>
-        <div className="bg-blue-100 p-6 rounded-lg shadow-lg">
-          <h3 className="font-semibold text-lg mb-3">Humidity</h3>
-          <p className="text-xl">Humidity: 65%</p>
-        </div>
-        <div className="bg-yellow-100 p-6 rounded-lg shadow-lg">
-          <h3 className="font-semibold text-lg mb-3">Vegetation Health</h3>
-          <p className="text-xl">Healthy Vegetation: 85%</p>
-        </div>
-      </section>
-
-      {/* Adoption Section */}
-      <section className="bg-white p-6 rounded-lg shadow-lg mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Adopt a Portion of the Forest Reserve</h2>
-        <p className="mb-4">
-          Choose a portion of the forest reserve to adopt and track its health. Your actions will contribute to its restoration and preservation.
-        </p>
-        <div className="mb-4">
-          <label htmlFor="adopt-progress" className="block text-sm font-medium mb-2">
-            Adopted Portion Health
-          </label>
-          <div className="w-full h-6 bg-gray-200 rounded-full overflow-hidden">
-            <div className="h-full bg-green-500 rounded-full" style={{ width: '60%' }}></div>
+        {/* Real-Time Stats Section */}
+        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="bg-green-700 text-white p-6 rounded-lg shadow-lg">
+            <h3 className="font-semibold text-lg mb-3">Air Quality</h3>
+            <p className="text-xl">Current AQI: 45 (Good)</p>
           </div>
-        </div>
-        <button className="bg-green-600 text-white py-2 px-6 rounded-lg hover:bg-green-500 transition duration-300">
-          Adopt This Portion
-        </button>
-      </section>
+          <div className="bg-blue-700 text-white p-6 rounded-lg shadow-lg">
+            <h3 className="font-semibold text-lg mb-3">Humidity</h3>
+            <p className="text-xl">Humidity: 65%</p>
+          </div>
+          <div className="bg-yellow-600 text-white p-6 rounded-lg shadow-lg">
+            <h3 className="font-semibold text-lg mb-3">Vegetation Health</h3>
+            <p className="text-xl">Healthy Vegetation: 85%</p>
+          </div>
+        </section>
 
-      {/* Gamification & Rewards Section */}
-      <section className="bg-gray-50 p-6 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-semibold mb-4">Earn Rewards for Protecting the Forest</h2>
-        <p className="mb-4">
-          Complete eco-friendly challenges, adopt more forest portions, and share your progress to earn rewards.
-        </p>
-        <button className="bg-yellow-500 text-white py-2 px-6 rounded-lg hover:bg-yellow-400 transition duration-300">
-          View Challenges
-        </button>
-      </section>
+        {/* Adoption Section */}
+        <section className="bg-green-800 text-white p-6 rounded-lg shadow-lg mb-12">
+          <h2 className="text-2xl font-semibold mb-4">Adopt a Portion of the Forest Reserve</h2>
+          <p className="mb-4">
+            Choose a portion of the forest reserve to adopt and track its health. Your actions will contribute to its restoration and preservation.
+          </p>
+          <div className="mb-4">
+            <label htmlFor="adopt-progress" className="block text-sm font-medium mb-2">
+              Adopted Portion Health
+            </label>
+            <div className="w-full h-6 bg-green-900 rounded-full overflow-hidden">
+              <div className="h-full bg-green-400 rounded-full" style={{ width: '60%' }}></div>
+            </div>
+          </div>
+          <button className="bg-green-500 text-white py-2 px-6 rounded-lg hover:bg-green-400 transition duration-300">
+            Adopt This Portion
+          </button>
+        </section>
+
+        {/* Gamification & Rewards Section */}
+        <section className="bg-gray-800 text-white p-6 rounded-lg shadow-lg">
+          <h2 className="text-2xl font-semibold mb-4">Earn Rewards for Protecting the Forest</h2>
+          <p className="mb-4">
+            Complete eco-friendly challenges, adopt more forest portions, and share your progress to earn rewards.
+          </p>
+          <button className="bg-yellow-600 text-white py-2 px-6 rounded-lg hover:bg-yellow-500 transition duration-300">
+            View Challenges
+          </button>
+        </section>
+      </div>
     </div>
   )
 }
