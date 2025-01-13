@@ -56,91 +56,91 @@ const FloatingEcoChat = () => {
     }, 1000);
   };
 
- return (
-  <div className="fixed bottom-6 right-6 z-50">
-    {!isOpen ? (
-      <button
-        onClick={() => setIsOpen(true)}
-        className="bg-green-700 text-white p-4 rounded-full shadow-lg hover:bg-green-800 transition-colors duration-200 flex items-center gap-2"
-      >
-        <Bot className="w-6 h-6" />
-        <span className="font-medium">Ask EcoAI</span>
-      </button>
-    ) : (
-      <div className="bg-green-700 rounded-lg shadow-xl w-96 h-[600px] flex flex-col">
-        <div className="bg-green-600 p-4 rounded-t-lg flex justify-between items-center">
-          <h2 className="text-white text-lg font-semibold flex items-center gap-2">
-            <Bot className="w-6 h-6" />
-            EcoVerse Assistant
-          </h2>
-          <button
-            onClick={() => setIsOpen(false)}
-            className="text-white hover:text-green-100"
-          >
-            <X className="w-6 h-6" />
-          </button>
-        </div>
-
-        <div className="flex-1 overflow-y-auto p-4 bg-green-800">
-          {messages.map((message, index) => (
-            <div
-              key={index}
-              className={`flex items-start gap-2 mb-4 ${
-                message.type === 'user' ? 'flex-row-reverse' : ''
-              }`}
-            >
-              {message.type === 'bot' ? (
-                <Bot className="w-6 h-6 text-green-600 mt-1" />
-              ) : (
-                <User className="w-6 h-6 text-blue-600 mt-1" />
-              )}
-              <div
-                className={`p-3 rounded-lg ${
-                  message.type === 'user'
-                    ? 'bg-blue-700 text-white'
-                    : 'bg-green-600 text-white'
-                }`}
-              >
-                <p>{message.content}</p>
-                <span className="text-xs opacity-70 mt-1 block">
-                  {message.timestamp.toLocaleTimeString()}
-                </span>
-              </div>
-            </div>
-          ))}
-          {isLoading && (
-            <div className="flex items-center gap-2">
-              <Bot className="w-6 h-6 text-green-600" />
-              <div className="bg-green-600 p-3 rounded-lg shadow-sm">
-                <p>Thinking...</p>
-              </div>
-            </div>
-          )}
-        </div>
-
-        <form onSubmit={handleSubmit} className="p-4 border-t border-green-500">
-          <div className="flex gap-2">
-            <input
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask about environmental topics..."
-              className="flex-1 p-2 border rounded-lg bg-green-200 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-600"
-            />
+  return (
+    <div className="fixed bottom-6 right-6 z-50">
+      {!isOpen ? (
+        <button
+          onClick={() => setIsOpen(true)}
+          className="bg-green-600 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition-colors duration-200 flex items-center gap-2"
+        >
+          <Bot className="w-6 h-6" />
+          <span className="font-medium">Ask EcoAI</span>
+        </button>
+      ) : (
+        <div className="bg-white rounded-lg shadow-xl w-96 h-[600px] flex flex-col">
+          <div className="bg-green-600 p-4 rounded-t-lg flex justify-between items-center">
+            <h2 className="text-white text-lg font-semibold flex items-center gap-2">
+              <Bot className="w-6 h-6" />
+              EcoVerse Assistant
+            </h2>
             <button
-              type="submit"
-              disabled={isLoading || !input.trim()}
-              className="bg-green-600 text-white p-2 rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50"
+              onClick={() => setIsOpen(false)}
+              className="text-white hover:text-green-100"
             >
-              <Send className="w-6 h-6" />
+              <X className="w-6 h-6" />
             </button>
           </div>
-        </form>
-      </div>
-    )}
-  </div>
-);
 
+          <div className="flex-1 overflow-y-auto p-4 bg-gray-50">
+            {messages.map((message, index) => (
+              <div
+                key={index}
+                className={`flex items-start gap-2 mb-4 ${
+                  message.type === 'user' ? 'flex-row-reverse' : ''
+                }`}
+              >
+                {message.type === 'bot' ? (
+                  <Bot className="w-6 h-6 text-green-600 mt-1" />
+                ) : (
+                  <User className="w-6 h-6 text-blue-600 mt-1" />
+                )}
+                <div
+                  className={`p-3 rounded-lg ${
+                    message.type === 'user'
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-white shadow-sm'
+                  }`}
+                >
+                  <p>{message.content}</p>
+                  <span className="text-xs opacity-70 mt-1 block">
+                    {message.timestamp.toLocaleTimeString()}
+                  </span>
+                </div>
+              </div>
+            ))}
+            {isLoading && (
+              <div className="flex items-center gap-2">
+                <Bot className="w-6 h-6 text-green-600" />
+                <div className="bg-white p-3 rounded-lg shadow-sm">
+                  <p>Thinking...</p>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <form onSubmit={handleSubmit} className="p-4 border-t">
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Ask about environmental topics..."
+                className="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600"
+              />
+              <button
+                type="submit"
+                disabled={isLoading || !input.trim()}
+                className="bg-green-600 text-white p-2 rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50"
+              >
+                <Send className="w-6 h-6" />
+              </button>
+            </div>
+          </form>
+        </div>
+      )}
+    </div>
+  );
+};
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ href, icon, title, description, bgColor }) => {
   const content = (
@@ -194,90 +194,90 @@ export default function Home() {
     }
   }
 
- return (
-  <div>
-    <AnimatedHero />
-    <motion.div
-      className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 1, duration: 0.8 }}
-    >
-      <div className="flex justify-center items-center">
-        <button
-          onClick={scrollToContent}
-          className="bg-green-600 text-white px-6 py-3 rounded-full font-bold text-lg hover:bg-green-700 transition-colors duration-300"
-        >
-          Explore
-        </button>
-      </div>
-    </motion.div>
-
-    <div ref={contentRef} className="min-h-screen bg-green-700 py-16">
-      <motion.div 
-        className="container mx-auto px-4"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.8 }}
-        variants={containerVariants}
+  return (
+    <div>
+      <AnimatedHero />
+      <motion.div
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1, duration: 0.8 }}
       >
-        <motion.h2 
-          className="text-4xl font-bold text-center mb-12 text-white"
-          variants={itemVariants}
-        >
-          Discover Our Features
-        </motion.h2>
+        <div className="flex justify-center items-center">
+          <button
+            onClick={scrollToContent}
+            className="bg-white text-green-600 px-6 py-3 rounded-full font-bold text-lg hover:bg-green-100 transition-colors duration-300"
+          >
+            Explore
+          </button>
+        </div>
+      </motion.div>
+
+      <div ref={contentRef} className="min-h-screen bg-white py-16">
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="container mx-auto px-4"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.8 }}
           variants={containerVariants}
         >
-          <FeatureCard
-            href="/forest-reserve"
-            icon={<Tree className="w-8 h-8 text-green-500" />}
-            title="Forest Reserve Monitoring"
-            description="Monitor real-time health stats of selected forest reserves."
-            bgColor="bg-green-800"
-          />
-          <FeatureCard
-            href="/carbon-water-tracker"
-            icon={<Droplet className="w-8 h-8 text-blue-500" />}
-            title="Carbon & Water Tracker"
-            description="Track your personal carbon footprint and water consumption."
-            bgColor="bg-blue-800"
-          />
-          <FeatureCard
-            href="/challenges"
-            icon={<Bike className="w-8 h-8 text-purple-500" />}
-            title="Ecosystem Challenges"
-            description="Participate in weekly eco-friendly challenges."
-            bgColor="bg-purple-800"
-          />
-          <FeatureCard
-            href="/ecosystem-map"
-            icon={<Map className="w-8 h-8 text-red-500" />}
-            title="Ecosystem Health Visualization"
-            description="Explore interactive maps of ecosystem health."
-            bgColor="bg-red-800"
-          />
-          <FeatureCard
-            href="/community"
-            icon={<Users className="w-8 h-8 text-indigo-500" />}
-            title="Community Collaboration"
-            description="Connect with local authorities and eco-volunteer programs."
-            bgColor="bg-indigo-800"
-          />
-          <FeatureCard
-            title="Carbon Offset Contributions"
-            description="Contribute to reforestation or water restoration projects."
-            bgColor="bg-yellow-800"
-            icon={<Heart className="w-8 h-8 text-yellow-500" />}
-          />
+          <motion.h2 
+            className="text-4xl font-bold text-center mb-12"
+            variants={itemVariants}
+          >
+            Discover Our Features
+          </motion.h2>
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            variants={containerVariants}
+          >
+            <FeatureCard
+              href="/forest-reserve"
+              icon={<Tree className="w-8 h-8" />}
+              title="Forest Reserve Monitoring"
+              description="Monitor real-time health stats of selected forest reserves."
+              bgColor="bg-green-100"
+            />
+            <FeatureCard
+              href="/carbon-water-tracker"
+              icon={<Droplet className="w-8 h-8" />}
+              title="Carbon & Water Tracker"
+              description="Track your personal carbon footprint and water consumption."
+              bgColor="bg-blue-100"
+            />
+            <FeatureCard
+              href="/challenges"
+              icon={<Bike className="w-8 h-8" />}
+              title="Ecosystem Challenges"
+              description="Participate in weekly eco-friendly challenges."
+              bgColor="bg-purple-100"
+            />
+            <FeatureCard
+              href="/ecosystem-map"
+              icon={<Map className="w-8 h-8" />}
+              title="Ecosystem Health Visualization"
+              description="Explore interactive maps of ecosystem health."
+              bgColor="bg-red-100"
+            />
+            <FeatureCard
+              href="/community"
+              icon={<Users className="w-8 h-8" />}
+              title="Community Collaboration"
+              description="Connect with local authorities and eco-volunteer programs."
+              bgColor="bg-indigo-100"
+            />
+            <FeatureCard
+              title="Carbon Offset Contributions"
+              description="Contribute to reforestation or water restoration projects."
+              bgColor="bg-yellow-100"
+              icon={<Heart className="w-8 h-8" />}
+            />
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
+      
+      <FloatingEcoChat />
+      <Footer />
     </div>
-    
-    <FloatingEcoChat />
-    <Footer />
-  </div>
-);
+  )
 }
