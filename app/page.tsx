@@ -67,9 +67,9 @@ const FloatingEcoChat = () => {
           <span className="font-medium">Ask EcoAI</span>
         </button>
       ) : (
-        <div className="bg-white rounded-lg shadow-xl w-96 h-[600px] flex flex-col">
+        <div className="bg-green-600 rounded-lg shadow-xl w-96 h-[600px] flex flex-col">
           <div className="bg-green-600 p-4 rounded-t-lg flex justify-between items-center">
-            <h2 className="text-white text-lg font-semibold flex items-center gap-2">
+            <h2 className="text-black text-lg font-semibold flex items-center gap-2">
               <Bot className="w-6 h-6" />
               EcoVerse Assistant
             </h2>
