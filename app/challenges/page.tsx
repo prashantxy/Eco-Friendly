@@ -82,33 +82,23 @@ export default function Challenges() {
       <h2 className="text-3xl font-bold text-green-600 mb-4">How are you helping the planet?</h2>
       
       <div className="space-y-4 text-black">
-        <div className="flex items-center">
-          <input
-            type="checkbox"
-            checked={answers.cycleToWork}
-            onChange={() => setAnswers(prev => ({ ...prev, cycleToWork: !prev.cycleToWork }))} 
-            className="mr-3"
-          />
-          <span>Cycle to work for a week</span>
-        </div>
-        <div className="flex items-center">
-          <input
-            type="checkbox"
-            checked={answers.plantTrees}
-            onChange={() => setAnswers(prev => ({ ...prev, plantTrees: !prev.plantTrees }))} 
-            className="mr-3"
-          />
-          <span>Plant 3 trees this month</span>
-        </div>
-        <div className="flex items-center">
-          <input
-            type="checkbox"
-            checked={answers.reducePlastic}
-            onChange={() => setAnswers(prev => ({ ...prev, reducePlastic: !prev.reducePlastic }))} 
-            className="mr-3"
-          />
-          <span>Reduce plastic use by 50%</span>
-        </div>
+        {[
+          { id: 'cycleToWork', label: 'Cycle to work for a week' },
+          { id: 'plantTrees', label: 'Plant 3 trees this month' },
+          { id: 'reducePlastic', label: 'Reduce plastic use by 50%' },
+        ].map((challenge) => (
+          <div key={challenge.id} className="flex items-center">
+            <input
+              type="checkbox"
+              checked={answers[challenge.id]}
+              onChange={() =>
+                setAnswers((prev) => ({ ...prev, [challenge.id]: !prev[challenge.id] }))
+              }
+              className="mr-3"
+            />
+            <span>{challenge.label}</span>
+          </div>
+        ))}
       </div>
     </motion.div>
 
