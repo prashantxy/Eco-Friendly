@@ -1,9 +1,10 @@
-'use client'
+'use client' // Mark this file as a client component
 
 import { useState, useEffect } from 'react'
 import { TreesIcon as Tree } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import 'leaflet/dist/leaflet.css'
+import { useRouter } from 'next/navigation';
 
 // Dynamically import Leaflet components for client-side rendering
 const MapContainer = dynamic(() => import('react-leaflet').then(mod => mod.MapContainer), { ssr: false })
@@ -22,7 +23,7 @@ type Reserve = {
 
 export default function ForestReserve() {
   const [reserves, setReserves] = useState<Reserve[]>([])
-
+  const router = useRouter();
   // Mock API call to fetch forest reserves
   useEffect(() => {
     const fetchReserves = async () => {
@@ -34,6 +35,9 @@ export default function ForestReserve() {
     }
     fetchReserves()
   }, [])
+  const handleAdopt = () => {
+    router.push('/buyforest');
+  };
 
   return (
     <div className="container mx-auto p-6">
@@ -51,28 +55,7 @@ export default function ForestReserve() {
       {/* Interactive Map Section */}
       <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-4">Explore Forest Reserves on the Map</h2>
-        <div className="relative h-80 bg-gray-200 rounded-lg">
-          <MapContainer
-            center={[51.505, -0.09]} // Default center
-            zoom={5} // Default zoom level
-            className="h-full w-full rounded-lg shadow-lg"
-          >
-            {/* Tile layer */}
-            <TileLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              attribution="© OpenStreetMap contributors"
-            />
-            {/* Dynamic markers for forest reserves */}
-            {reserves.map(reserve => (
-              <Marker key={reserve.id} position={[reserve.lat, reserve.lng]}>
-                <Popup>
-                  <strong>{reserve.name}</strong>
-                  <p>Healthy Vegetation: {reserve.health}%</p>
-                </Popup>
-              </Marker>
-            ))}
-          </MapContainer>
-        </div>
+       
       </section>
 
       {/* Real-Time Stats Section */}
@@ -92,7 +75,7 @@ export default function ForestReserve() {
       </section>
 
       {/* Adoption Section */}
-      <section className="bg-white p-6 rounded-lg shadow-lg mb-12">
+      <section className="bg- p-6 rounded-lg shadow-lg mb-12">
         <h2 className="text-2xl font-semibold mb-4">Adopt a Portion of the Forest Reserve</h2>
         <p className="mb-4">
           Choose a portion of the forest reserve to adopt and track its health. Your actions will contribute to its restoration and preservation.
@@ -105,7 +88,10 @@ export default function ForestReserve() {
             <div className="h-full bg-green-500 rounded-full" style={{ width: '60%' }}></div>
           </div>
         </div>
-        <button className="bg-green-600 text-white py-2 px-6 rounded-lg hover:bg-green-500 transition duration-300">
+        <button
+          onClick={handleAdopt} // Add onClick handler for navigation
+          className="bg-green-600 text-white py-2 px-6 rounded-lg hover:bg-green-500 transition duration-300"
+        >
           Adopt This Portion
         </button>
       </section>
