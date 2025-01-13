@@ -45,13 +45,15 @@ export default function Challenges() {
 
   return (
     
-    <div className="relative overflow-hidden max-w-4xl mx-auto p-6 bg-green-50">
-      {/* Floating Background */}
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-green-300 via-green-400 to-blue-300 z-0 animate-background">
-        <div className="floating-bubbles absolute top-10 left-20 opacity-30 animate-bubble"></div>
-        <div className="floating-leaves absolute top-20 right-10 opacity-40 animate-leaf"></div>
-        <div className="floating-clouds absolute top-40 left-40 opacity-20 animate-cloud"></div>
-      </div>
+   <div className="relative overflow-hidden w-screen h-screen bg-green-50">
+  {/* Floating Background */}
+  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-green-300 via-green-400 to-blue-300 z-0 animate-background">
+    <div className="floating-bubbles absolute top-10 left-20 opacity-30 animate-bubble"></div>
+    <div className="floating-leaves absolute top-20 right-10 opacity-40 animate-leaf"></div>
+    <div className="floating-clouds absolute top-40 left-40 opacity-20 animate-cloud"></div>
+  </div>
+</div>
+
       
       {/* Header Section */}
      
@@ -76,7 +78,7 @@ export default function Challenges() {
 
       {/* Static Questions Section */}
       <motion.div 
-        className="bg-white p-8 rounded-lg shadow-lg mb-6 z-10 relative"
+        className="bg-blue-200 p-8 rounded-lg shadow-lg mb-6 z-10 relative"
         initial={{ opacity: 0 }} 
         animate={{ opacity: 1 }} 
         transition={{ duration: 1 }}
@@ -149,7 +151,7 @@ export default function Challenges() {
       {/* Badge Section */}
       {badge && (
         <motion.div 
-          className="bg-white p-8 rounded-lg shadow-lg text-center z-10 relative"
+          className="bg-green-300 p-8 rounded-lg shadow-lg text-center z-10 relative"
           initial={{ opacity: 0 }} 
           animate={{ opacity: 1 }} 
           transition={{ duration: 1 }}
@@ -161,7 +163,7 @@ export default function Challenges() {
 
       {/* Leaderboard Section */}
       <motion.div 
-        className="mt-10 bg-white p-8 rounded-lg shadow-lg z-10 relative"
+        className="mt-10 bg-green-200 p-8 rounded-lg shadow-lg z-10 relative"
         initial={{ opacity: 0 }} 
         animate={{ opacity: 1 }} 
         transition={{ duration: 1 }}
