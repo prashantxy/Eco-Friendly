@@ -81,7 +81,7 @@ const FloatingEcoChat = () => {
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto p-4 bg-gray-50">
+          <div className="flex-1 overflow-y-auto p-4 bg-green-200">
             {messages.map((message, index) => (
               <div
                 key={index}
@@ -125,7 +125,7 @@ const FloatingEcoChat = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask about environmental topics..."
-                className="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600"
+                className="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600 text-black"
               />
               <button
                 type="submit"
