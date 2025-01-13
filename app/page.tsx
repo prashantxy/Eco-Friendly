@@ -61,15 +61,15 @@ const FloatingEcoChat = () => {
       {!isOpen ? (
         <button
           onClick={() => setIsOpen(true)}
-          className="bg-green-600 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition-colors duration-200 flex items-center gap-2"
+          className="bg-green-600 text-black p-4 rounded-full shadow-lg hover:bg-green-700 transition-colors duration-200 flex items-center gap-2"
         >
           <Bot className="w-6 h-6" />
           <span className="font-medium">Ask EcoAI</span>
         </button>
       ) : (
-        <div className="bg-white rounded-lg shadow-xl w-96 h-[600px] flex flex-col">
+        <div className="bg-blue-600 rounded-lg shadow-xl w-96 h-[600px] flex flex-col">
           <div className="bg-green-600 p-4 rounded-t-lg flex justify-between items-center">
-            <h2 className="text-white text-lg font-semibold flex items-center gap-2">
+            <h2 className="text-black text-lg font-semibold flex items-center gap-2">
               <Bot className="w-6 h-6" />
               EcoVerse Assistant
             </h2>
