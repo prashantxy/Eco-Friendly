@@ -213,7 +213,7 @@ export default function Home() {
         </div>
       </motion.div>
 
-      <div ref={contentRef} className="min-h-screen bg-blue-100 py-16">
+      <div ref={contentRef} className="min-h-screen bg-blue-300 py-16">
         <motion.div 
           className="container mx-auto px-4"
           initial="hidden"
@@ -269,7 +269,7 @@ export default function Home() {
             <FeatureCard
               title="Carbon Offset Contributions"
               description="Contribute to reforestation or water restoration projects."
-              bgColor="bg-yellow-100"
+              bgColor="bg-yellow-600"
               icon={<Heart className="w-8 h-8" />}
             />
           </motion.div>
