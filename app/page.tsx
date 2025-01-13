@@ -75,7 +75,7 @@ const FloatingEcoChat = () => {
             </h2>
             <button
               onClick={() => setIsOpen(false)}
-              className="text-white hover:text-green-100"
+              className="text-black hover:text-green-100"
             >
               <X className="w-6 h-6" />
             </button>
@@ -97,8 +97,8 @@ const FloatingEcoChat = () => {
                 <div
                   className={`p-3 rounded-lg ${
                     message.type === 'user'
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-white shadow-sm'
+                      ? 'bg-blue-600 text-black'
+                      : 'bg-blue-600 shadow-sm'
                   }`}
                 >
                   <p>{message.content}</p>
@@ -111,7 +111,7 @@ const FloatingEcoChat = () => {
             {isLoading && (
               <div className="flex items-center gap-2">
                 <Bot className="w-6 h-6 text-green-600" />
-                <div className="bg-white p-3 rounded-lg shadow-sm">
+                <div className="bg-blue-600 p-3 rounded-lg shadow-sm">
                   <p>Thinking...</p>
                 </div>
               </div>
@@ -130,7 +130,7 @@ const FloatingEcoChat = () => {
               <button
                 type="submit"
                 disabled={isLoading || !input.trim()}
-                className="bg-green-600 text-white p-2 rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50"
+                className="bg-green-600 text-black p-2 rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50"
               >
                 <Send className="w-6 h-6" />
               </button>
@@ -206,14 +206,14 @@ export default function Home() {
         <div className="flex justify-center items-center">
           <button
             onClick={scrollToContent}
-            className="bg-white text-green-600 px-6 py-3 rounded-full font-bold text-lg hover:bg-green-100 transition-colors duration-300"
+            className="bg-blue-600 text-green-600 px-6 py-3 rounded-full font-bold text-lg hover:bg-green-100 transition-colors duration-300"
           >
             Explore
           </button>
         </div>
       </motion.div>
 
-      <div ref={contentRef} className="min-h-screen bg-white py-16">
+      <div ref={contentRef} className="min-h-screen bg-blue-600 py-16">
         <motion.div 
           className="container mx-auto px-4"
           initial="hidden"
