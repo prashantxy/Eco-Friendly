@@ -206,14 +206,14 @@ export default function Home() {
         <div className="flex justify-center items-center">
           <button
             onClick={scrollToContent}
-            className="bg-blue-600 text-green-600 px-6 py-3 rounded-full font-bold text-lg hover:bg-green-100 transition-colors duration-300"
+            className="bg-black text-green-600 px-6 py-3 rounded-full font-bold text-lg hover:bg-green-100 transition-colors duration-300"
           >
             Explore
           </button>
         </div>
       </motion.div>
 
-      <div ref={contentRef} className="min-h-screen bg-blue-600 py-16">
+      <div ref={contentRef} className="min-h-screen bg-blue-100 py-16">
         <motion.div 
           className="container mx-auto px-4"
           initial="hidden"
@@ -236,35 +236,35 @@ export default function Home() {
               icon={<Tree className="w-8 h-8" />}
               title="Forest Reserve Monitoring"
               description="Monitor real-time health stats of selected forest reserves."
-              bgColor="bg-green-100"
+              bgColor="bg-green-600"
             />
             <FeatureCard
               href="/carbon-water-tracker"
               icon={<Droplet className="w-8 h-8" />}
               title="Carbon & Water Tracker"
               description="Track your personal carbon footprint and water consumption."
-              bgColor="bg-blue-100"
+              bgColor="bg-blue-600"
             />
             <FeatureCard
               href="/challenges"
               icon={<Bike className="w-8 h-8" />}
               title="Ecosystem Challenges"
               description="Participate in weekly eco-friendly challenges."
-              bgColor="bg-purple-100"
+              bgColor="bg-purple-600"
             />
             <FeatureCard
               href="/ecosystem-map"
               icon={<Map className="w-8 h-8" />}
               title="Ecosystem Health Visualization"
               description="Explore interactive maps of ecosystem health."
-              bgColor="bg-red-100"
+              bgColor="bg-red-600"
             />
             <FeatureCard
               href="/community"
               icon={<Users className="w-8 h-8" />}
               title="Community Collaboration"
               description="Connect with local authorities and eco-volunteer programs."
-              bgColor="bg-indigo-100"
+              bgColor="bg-indigo-600"
             />
             <FeatureCard
               title="Carbon Offset Contributions"
