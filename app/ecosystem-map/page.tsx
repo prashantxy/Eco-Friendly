@@ -86,7 +86,7 @@ return (
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.9 }}
-          className="bg-blue-200 rounded-lg shadow-lg p-8 max-w-2xl w-full"
+          className="bg-blue-400 rounded-lg shadow-lg p-8 max-w-2xl w-full"
         >
           <h2 className="text-2xl font-semibold mb-4 text-center">
             {forestReserves[currentReserve].name}
