@@ -7,8 +7,8 @@ import Script from 'next/script'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'EcoSystem Monitor',
-  description: 'Monitor and contribute to ecosystem health',
+  title: 'Eco-Verse',
+  description: 'Meta-Verse of Environment',
 }
 
 export default function RootLayout({
