@@ -12,7 +12,7 @@ const Navbar = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
   return (
-    <nav className="bg-green-500 text-white shadow-md">
+    <nav className="bg-green-600 text-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
         {/* Logo or Brand */}
         <div className="text-2xl font-semibold">
