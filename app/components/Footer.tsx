@@ -20,7 +20,7 @@ const Header = () => {
   return (
     <motion.header 
       className={`fixed w-full z-50 transition-colors duration-300 ${
-        isAtTop ? 'bg-transparent text-white' : 'bg-white text-green-600 shadow-md'
+        isAtTop ? 'bg-transparent text-white' : 'bg-green-500 text-green-600 shadow-md'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -50,5 +50,19 @@ const NavItem = ({ href, icon, text }: { href: string; icon: React.ReactNode; te
   </li>
 )
 
-export default Header
+const Footer = () => (
+  <footer className="w-full bg-green-400 text-white py-4">
+    <div className="container mx-auto text-center">
+      <p>&copy; {new Date().getFullYear()} EcoSystem Monitor. All rights reserved.</p>
+      <p>
+        Check the project on{' '}
+        <Link href="https://github.com/prashantxy/Eco-Friendly" className="text-green-400 hover:underline">
+          GitHub
+        </Link>
+      </p>
+    </div>
+  </footer>
+)
 
+export default Header
+export { Footer }
