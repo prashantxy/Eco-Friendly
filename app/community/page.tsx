@@ -29,7 +29,7 @@ export default function Community() {
     
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
       <motion.div {...fadeIn}>
-        <Card className="bg-green-300 text-black hover:shadow-lg transition-shadow duration-300">
+        <Card className="bg-green-500 text-black hover:shadow-lg transition-shadow duration-300">
           <CardHeader>
             <CardTitle className="flex items-center text-2xl text-white">
               <Leaf className="mr-2 text-green-600" /> Local Authorities
@@ -50,7 +50,7 @@ export default function Community() {
       </motion.div>
 
       <motion.div {...fadeIn} transition={{ delay: 0.2 }}>
-        <Card className="bg-green-300 text-black hover:shadow-lg transition-shadow duration-300">
+        <Card className="bg-green-500 text-black hover:shadow-lg transition-shadow duration-300">
           <CardHeader>
             <CardTitle className="flex items-center text-2xl text-white">
               <Users className="mr-2 text-blue-600" /> Eco-Volunteer Programs
@@ -72,7 +72,7 @@ export default function Community() {
     </div>
 
     <motion.div {...fadeIn} transition={{ delay: 0.4 }}>
-      <Card className="mb-12 bg-green-300 text-black hover:shadow-lg transition-shadow duration-300">
+      <Card className="mb-12 bg-green-500 text-black hover:shadow-lg transition-shadow duration-300">
         <CardHeader>
           <CardTitle className="flex items-center text-2xl text-white">
             <AlertTriangle className="mr-2 text-yellow-600" /> Report Harmful Activities
@@ -92,7 +92,7 @@ export default function Community() {
               </div>
             </div>
             <div className="space-y-2">
-              <Label htmlFor="activity-type" className="text-white">Type of Activity</Label>
+              <Label htmlFor="activity-type" className="text-black">Type of Activity</Label>
               <Select
                 options={[
                   { value: "illegal-logging", label: "Illegal Logging" },
