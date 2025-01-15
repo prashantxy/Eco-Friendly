@@ -44,7 +44,7 @@ export default function Community() {
             </ul>
           </CardContent>
           <CardFooter>
-            <Button className="w-full bg-green-600 hover:bg-green-700">Contact Now</Button>
+            <Button className="w-full bg-green-800 hover:bg-green-700">Contact Now</Button>
           </CardFooter>
         </Card>
       </motion.div>
@@ -65,7 +65,7 @@ export default function Community() {
             </ul>
           </CardContent>
           <CardFooter>
-            <Button className="w-full bg-blue-600 hover:bg-blue-700">Sign Up</Button>
+            <Button className="w-full bg-blue-400 hover:bg-blue-700">Sign Up</Button>
           </CardFooter>
         </Card>
       </motion.div>
