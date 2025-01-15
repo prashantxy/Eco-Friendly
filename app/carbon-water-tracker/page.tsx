@@ -192,7 +192,7 @@ return (
       <motion.div 
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="bg-white rounded-xl shadow-lg p-6"
+        className="bg-green-400 rounded-xl shadow-lg p-6"
       >
         <h2 className="text-2xl font-semibold mb-6 text-black">Track Your Usage</h2>
         
