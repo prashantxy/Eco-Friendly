@@ -236,7 +236,7 @@ return (
                       type="number"
                       value={formData[id] || ''}
                       onChange={(e) => handleInputChange(id, e.target.value)}
-                      className="w-full p-2 border rounded-md"
+                      className=" text-green-600 w-full p-2 border rounded-md"
                     />
                   </motion.div>
                 ))}
