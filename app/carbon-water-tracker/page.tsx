@@ -205,7 +205,7 @@ return (
               onClick={() => setActiveCategory(activeCategory === id ? null : id)}
               className={`p-4 rounded-lg transition-all ${
                 activeCategory === id 
-                  ? 'bg-green-500 text-white shadow-lg' 
+                  ? 'bg-green-500 text-blue-600 shadow-lg' 
                   : 'bg-gray-100 hover:bg-gray-200'
               }`}
             >
@@ -231,7 +231,7 @@ return (
                     animate={{ x: 0, opacity: 1 }}
                     className="space-y-2"
                   >
-                    <label className="text-sm font-medium text-gray-600">{label}</label>
+                    <label className="text-sm font-medium text-blue-600">{label}</label>
                     <input
                       type="number"
                       value={formData[id] || ''}
