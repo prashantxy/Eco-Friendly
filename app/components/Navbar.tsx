@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Heart, Home, TreesIcon as Tree, Droplet, Bike, Map, Users} from 'lucide-react'
+import Wallet from "@/app/components/ThirdWebWallet"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -37,6 +38,7 @@ const Navbar = () => {
           <Link href="/ecosystem-map" className="hover:text-green-200">Ecosystem Map</Link>
           <Link href="/community" className="hover:text-green-200">Community</Link>
         </div>
+        <Wallet/>
       </div>
 
       {/* Mobile Menu (When Hamburger is Open) */}
