@@ -99,7 +99,7 @@ const AnimatedHero = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.8 }}
       >
-        <h1 className="text-4xl sm:text-6xl font-bold text-center">
+        <h1 className="text-4xl sm:text-[100px] font-bold text-center">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
