@@ -3,19 +3,21 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Heart, Home, TreesIcon as Tree, Droplet, Bike, Map, Users} from 'lucide-react'
+import { Heart } from 'lucide-react'
 import Wallet from "@/app/components/ThirdWebWallet"
+import Image from 'next/image';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  // Toggle menu for mobile view
+  
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
   return (
     <nav className="bg-green-600 text-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
-        {/* Logo or Brand */}
+        {/* Fixed Logo Path */}
+        
         <div className="text-2xl font-semibold">
           <Link href="/">Eco-Verse</Link>
         </div>
@@ -33,12 +35,14 @@ const Navbar = () => {
         <div className="hidden lg:flex space-x-6">
           <Link href="/" className="hover:text-green-200">Home</Link>
           <Link href="/forest-reserve" className="hover:text-green-200">Forest Reserve</Link>
-          <Link href="/carbon-water-tracker" className="hover:text-green-200">Carbon & Water Tracker</Link>
+          <Link href="/carbon-water-tracker" className="hover:text-green-200">CO2 & H2O Tracker</Link>
           <Link href="/challenges" className="hover:text-green-200">Challenges</Link>
           <Link href="/ecosystem-map" className="hover:text-green-200">Ecosystem Map</Link>
           <Link href="/community" className="hover:text-green-200">Community</Link>
+          <Link href="/crowdFunding" className="hover:text-green-200">Crowd-Funding</Link>
+          <Link href="/econnfts" className="hover:text-green-200">Eco-NFTs</Link>
         </div>
-        <Wallet/>
+        <Wallet />
       </div>
 
       {/* Mobile Menu (When Hamburger is Open) */}
@@ -50,6 +54,8 @@ const Navbar = () => {
           <Link href="/challenges" className="block py-2">Challenges</Link>
           <Link href="/ecosystem-map" className="block py-2">Ecosystem Map</Link>
           <Link href="/community" className="block py-2">Community</Link>
+          <Link href="/crowdFunding" className="block py-2">Crowd-Funding</Link>
+          <Link href="/econfts" className="hover:text-green-200">Eco-NFTs</Link>
         </div>
       )}
 
@@ -66,4 +72,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Navbar;
