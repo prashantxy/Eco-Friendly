@@ -1,0 +1,20 @@
+
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User_Report {
+  id        String   @id @default(uuid())
+  name     String
+  email   String  @unique
+  typeofactivity String
+  Description String
+  createdAt DateTime @default(now())
+}
