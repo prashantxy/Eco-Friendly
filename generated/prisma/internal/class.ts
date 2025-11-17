@@ -23,7 +23,7 @@ const config: runtime.GetPrismaClientConfig = {
       "value": "prisma-client"
     },
     "output": {
-      "value": "C:\\Users\\pdube\\OneDrive\\Desktop\\Eco-Verse\\Eco-Friendly\\app\\api\\generated\\prisma",
+      "value": "C:\\Users\\pdube\\OneDrive\\Desktop\\Eco-Verse\\Eco-Friendly\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -37,7 +37,7 @@ const config: runtime.GetPrismaClientConfig = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\pdube\\OneDrive\\Desktop\\Eco-Verse\\Eco-Friendly\\app\\api\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\pdube\\OneDrive\\Desktop\\Eco-Verse\\Eco-Friendly\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativePath": "../../prisma",
